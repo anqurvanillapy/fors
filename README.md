@@ -1,0 +1,7 @@
+# fors
+
+Yes.
+
+## License
+
+MIT
