@@ -7,7 +7,10 @@ use std::io::Error;
 use std::io::prelude::*;
 
 fn log_fatal(e: Error) {
-    println!("{}", e);
+    // Explicitly specifying fd is fine and is more Rust-version-compatible, but
+    // notice that writeln! also returns a Result, what a cyclic behavior...
+    // writeln!(std::io::stderr(), "{}", e).expect("writeln! error");
+    eprintln!("{}", e);
     process::exit(1);
 }
 
